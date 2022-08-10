@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GanheiGastei.Pages.PageListarPeriodo">
+    <ContentPage.Content>
+        <StackLayout>
+            <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition  Width="50*"/>
+                    <ColumnDefinition  Width="50*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="100*"/>
+                </Grid.RowDefinitions>
+
+                <StackLayout Margin="15,0,0,10" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                    <Label Text="De:"></Label>
+                    <DatePicker FontSize="Large" x:Name="datePickerInicio" DateSelected="datePickerInicio_DateSelected" HorizontalOptions="Center"></DatePicker>
+                </StackLayout>
+                <StackLayout Margin="0,0,15,10" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand">
+                    <Label Text="Até:"></Label>
+                    <DatePicker FontSize="Large" x:Name="datePickerFIm" DateSelected="datePickerFIm_DateSelected" VerticalOptions="Center" HorizontalOptions="Center"></DatePicker>
+                </StackLayout>
+
+                <Label x:Name="labelNadaNestePeriodo" IsVisible="False" Text="Nada encontrado neste período" FontSize="Medium" TextColor="Gray" HorizontalTextAlignment="Center" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" Margin="0,15,0,0" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2"/>
+
+                <StackLayout Margin="0,30,0,0" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2">
+                    <ListView x:Name="ListViewInfoInicial" SelectionMode="None" ItemTapped="GridInfo_ItemTapped"  HasUnevenRows="True" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
+
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+
+                                <ViewCell>
+
+                                    <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,0,15,0">
+
+                                        <Grid VerticalOptions="Center">
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="auto"/>
+                                                <RowDefinition Height="1"/>
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="50*"/>
+                                                <ColumnDefinition Width="50*"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <StackLayout Margin="0,5,0,5" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="0" Grid.Row="0">
+                                                <Label TextColor="{DynamicResource PretoEscuro}"  FontSize="15" HorizontalTextAlignment="Start" Text="{Binding DataHora,StringFormat=' {0:dd/MM/yyyy HH:mm}'}"></Label>
+                                            </StackLayout>
+                                            <StackLayout Margin="0,5,0,5" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="0">
+                                                <Label TextColor="{Binding CorTexto}" FontSize="17" HorizontalTextAlignment="End" FontAttributes="Bold" Text="{Binding Valor,StringFormat=' {0:N}'}"></Label>
+                                            </StackLayout>
+                                            <StackLayout Margin="0,5,0,5" VerticalOptions="Center" HorizontalOptions="Start" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+                                                <Label FontSize="Small" HorizontalTextAlignment="Start" Text="{Binding Descricao}"></Label>
+                                            </StackLayout>
+                                            <BoxView HeightRequest="0.2" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" Color="{DynamicResource CinzaClaro}">
+                                                
+                                            </BoxView>
+
+                                        </Grid>
+                                    </StackLayout>
+
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </StackLayout>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

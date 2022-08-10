@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:GanheiGastei"
+             x:Class="GanheiGastei.MainPage">
+
+    <StackLayout>
+        <Grid HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="50*"/>
+                <ColumnDefinition  Width="45*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="100*"/>
+                <RowDefinition Height="70"/>
+                <RowDefinition Height="70"/>
+            </Grid.RowDefinitions>
+
+            <Image Margin="15,15,0,0" x:Name="Imagem1" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Start" Source="Logo.png"  Grid.Row="0" Grid.Column="0" ></Image>
+            
+            <Button Margin="15,15,0,0" BackgroundColor="Transparent" x:Name="buttonMenu" Clicked="buttonMenu_Clicked" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Image="IconMenu.png" Grid.Row="0"></Button>
+
+            <StackLayout Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1">
+                <ListView x:Name="ListViewInfoInicial" SelectionMode="None" ItemTapped="GridInfo_ItemTapped"  HasUnevenRows="True" SeparatorVisibility="None" VerticalOptions="FillAndExpand">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+
+                            <ViewCell>
+
+                                <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="Center" Margin="15,0,15,0">
+
+                                    <Grid VerticalOptions="Center">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="50"/>
+                                            <RowDefinition Height="30"/>
+                                        </Grid.RowDefinitions>
+
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="33*"/>
+                                            <ColumnDefinition Width="33*"/>
+                                            <ColumnDefinition Width="33*"/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <StackLayout VerticalOptions="End" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0">
+                                            <Label FontSize="Medium" HorizontalTextAlignment="Start" Text="{Binding Descricao}"></Label>
+                                        </StackLayout>
+                                        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand"  Grid.Column="0" Grid.Row="1">
+                                            <Label TextColor="{DynamicResource VerdeEscuro}" FontSize="Large" HorizontalTextAlignment="Center" Text="{Binding ValorGanhei,StringFormat=' {0:n2}'}"></Label>
+                                        </StackLayout>
+                                        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="1">
+                                            <Label TextColor="{DynamicResource CinzaEscuro}" FontSize="Large" HorizontalTextAlignment="Center" Text="{Binding ValorGastei,StringFormat=' {0:n2}'}"></Label>
+                                        </StackLayout>
+                                        <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="2" Grid.Row="1">
+                                            <Label TextColor="{DynamicResource AzulEscuro}" FontSize="Large" HorizontalTextAlignment="Center" Text="{Binding Saldo,StringFormat=' {0:n2}'}"></Label>
+                                        </StackLayout>
+
+                                    </Grid>
+                                </StackLayout>
+
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+
+            <StackLayout Margin="15,0,10,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Grid.Column="0" Grid.Row="2">
+
+                <Button x:Name="buttonGanhei" FontAttributes="Bold" Clicked="buttonGanhei_Clicked" BorderWidth="0.3" BackgroundColor="Transparent" BorderColor="{DynamicResource VerdeEscuro}" TextColor="{DynamicResource VerdeEscuro}" CornerRadius="1" FontSize="20" Text="+ Ganhei" ></Button>
+
+            </StackLayout>
+
+            <StackLayout Margin="10,0,15,0" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Grid.Column="1" Grid.Row="2">
+
+                <Button x:Name="buttonGastei" FontAttributes="Bold" Clicked="buttonGastei_Clicked" BackgroundColor="Transparent" BorderWidth="0.3" BorderColor="{DynamicResource CinzaEscuro}" TextColor="{DynamicResource CinzaEscuro}" CornerRadius="1" FontSize="20" Text="- Gastei" ></Button>
+
+            </StackLayout>
+
+            <StackLayout VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="3">
+
+                <local:AdMobView x:Name="adMobView" VerticalOptions="FillAndExpand"  />
+            
+            </StackLayout>
+
+        </Grid>
+
+    </StackLayout>
+
+</ContentPage>
+
+    
+    

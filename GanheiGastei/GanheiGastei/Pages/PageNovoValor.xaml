@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"  
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GanheiGastei.Pages.PageNovoValor"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"  
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+                 >
+    <pages:PopupPage.Animation>
+        <animations:ScaleAnimation   
+                      PositionIn="Center"  
+                      PositionOut="Center"  
+                      ScaleIn="0.8"  
+                      ScaleOut="1.2"  
+                      DurationIn="100"  
+                      DurationOut="100"  
+                      EasingIn="SinOut"  
+                      EasingOut="SinIn"  
+      HasBackgroundAnimation="True"/>
+    </pages:PopupPage.Animation>
+    <StackLayout VerticalOptions="Center"  Padding="20,0" HorizontalOptions="FillAndExpand" >
+        <Frame CornerRadius="1" Padding="0" BackgroundColor="White" >
+            <StackLayout Padding="10">
+
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+                    <Label Margin="0,10,0,5" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Medium" FontFamily="Quantico" x:Name="labelTipo" Text="Gastei" TextColor="{DynamicResource PretoClaro}"/>
+
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <BoxView Grid.Column="0" BackgroundColor="Black"></BoxView>
+                        <Entry Placeholder="0,00" Completed="textBoxValor_Completed" Margin="1,1,1,1" BackgroundColor="White" Grid.Column="0" x:Name="textBoxValor" IsEnabled="True" HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Center" VerticalOptions="FillAndExpand"  TextColor="{DynamicResource PretoEscuro}" FontSize="Large" Keyboard="Numeric"></Entry>
+
+                    </Grid>
+
+                </StackLayout>
+
+                <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+
+                    <Label Margin="0,10,0,5" HorizontalOptions="Center" HorizontalTextAlignment="Center" FontSize="Medium" FontFamily="Quantico" x:Name="labelDescricao" Text="Descrição" TextColor="{DynamicResource PretoClaro}"/>
+
+                </StackLayout>
+                <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="Center">
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="100*"/>
+                        </Grid.ColumnDefinitions>
+                        <BoxView Grid.Column="0" BackgroundColor="Black"></BoxView>
+                        <Entry Completed="textBoxDescricao_Completed" BackgroundColor="White" Margin="1,1,1,1"  Grid.Column="0" x:Name="textBoxDescricao" Placeholder="ex:sorvetinho de leve" FontSize="Medium" IsEnabled="True" HorizontalOptions="FillAndExpand"  HorizontalTextAlignment="Start" VerticalOptions="FillAndExpand"  TextColor="{DynamicResource PretoEscuro}"></Entry>
+
+                    </Grid>
+
+                </StackLayout>
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="50*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Button IsVisible="False" BackgroundColor="Transparent" x:Name="buttonApagar" HorizontalOptions="Center" TextColor="{DynamicResource VermelhoEscuro}" FontSize="Small" FontFamily="Quantico" Text="Apagar" Clicked="buttonApagar_Clicked"></Button>
+                    </StackLayout>
+
+                    <StackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                        <Button BackgroundColor="Transparent" FontAttributes="Bold" x:Name="buttonPronto" HorizontalOptions="End" FontSize="Medium" FontFamily="Quantico" Text="Pronto" TextColor="Black" Clicked="buttonPronto_Clicked"></Button>
+                    </StackLayout>
+
+                </Grid>
+                
+
+            </StackLayout>
+        </Frame>
+    </StackLayout>
+</pages:PopupPage>  
